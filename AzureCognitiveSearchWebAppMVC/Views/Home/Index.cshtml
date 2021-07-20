@@ -1,0 +1,19 @@
+﻿@using Azure
+@using Azure.Search.Documents.Models
+@model Pageable<SearchResult<File>>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Documents</h1>
+    <p>Documents in Azure Blob Storage ("Broadway" is hardcoded as a filter for the moment).</p>
+
+    <ul>
+    @foreach(SearchResult<File> result in Model)
+    {
+        <li>@result.Document.Content</li>
+    }
+    </ul>
+
+</div>
